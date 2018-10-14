@@ -206,7 +206,6 @@ def edit_profile(request):
         form1 = UserFormCreationFormUpdate(instance=request.user)
         form2 = UserFormProfileUpdate(instance=request.user.profiles)
 
-
     return render(request, 'accounts/createprofile.html', {'form': form1, 'formm': form2, 'image': image})
 
 
