@@ -60,24 +60,6 @@ class UserUpdateAPI(RetrieveUpdateAPIView, LoginRequiredMixin):
 # ------------------------------------Views------------------------------------------------------
 
 
-# @login_required
-# def index_home(request):
-#     posts = MakePost.objects.all()
-#     metas = Todo.objects.all()
-#
-#     # both_lists = list(chain(posts, metas))
-#     # paginator = Paginator(both_lists, 8)
-#     # page = request.GET.get('page')
-#     # pagination_list = paginator.get_page(page)
-#
-#     context = {
-#         'post_list': posts,
-#         'meta_list': metas,
-#
-#     }
-#     return render(request, 'main.html', context)
-
-
 class index_home(LoginRequiredMixin, ListView):
     login_url = '/login/'
     template_name = 'main.html'
