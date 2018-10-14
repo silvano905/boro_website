@@ -78,7 +78,7 @@ class UserUpdateAPI(RetrieveUpdateAPIView, LoginRequiredMixin):
 #     return render(request, 'main.html', context)
 
 
-class index_home(LoginRequiredMixin, ListView):
+class IndexHome(LoginRequiredMixin, ListView):
     login_url = '/login/'
     template_name = 'main.html'
 

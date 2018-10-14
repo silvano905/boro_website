@@ -21,7 +21,7 @@ urlpatterns = [
     url(r'^todo/', include('todolist.urls', namespace='todo')),
     url(r'^login/$', LoginView.as_view(), {'template_name': 'login.html'}, name='login'),
     url(r'^logout/$', LogoutView.as_view(next_page=reverse_lazy('login')), name='logout'),
-    url(r'^$', views.index_home.as_view(), name='home'),
+    url(r'^$', views.IndexHome.as_view(), name='home'),
     path('password-reset/', auth_views.PasswordResetView.as_view(template_name='accounts/password_reset.html'),
         name='password_reset'),
     path('password-reset/done/', auth_views.PasswordResetDoneView.as_view(template_name='accounts/password_reset_done.html'),
