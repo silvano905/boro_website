@@ -63,7 +63,12 @@
                               <img class="card-img-top likepic" src="{{ x.user.profiles.profile_pic.url }}" alt="Card image cap">
                               <div class="card-body">
                                   {% if request.user != x.user %}
+                                      {% if request.user.profiles %}
                                 <h5 class="card-title"><a href="{% url 'accounts:detail' pk=x.user.profiles.id %}">{{ x }}</a></h5>
+                                      {% else %}
+                                          <h5 class="card-title"><a href="{% url 'posts:createprofilebeforeview'%}">{{ x }}</a></h5>
+                                      {% endif %}
+
                                       {% else %}
                                 <h5 class="card-title">{{ x }}</h5>
 
@@ -106,7 +111,11 @@
                             <div class="card" style="width: 18rem;">
                                 <div class="card-body">
                                     {% if request.user != comments.author %}
+                                        {% if request.user.profiles %}
                                     <p class="card-text"><a href="{% url 'accounts:detail' pk=comments.author.profiles.pk %}">{{ comments.author }}</a> </p>
+                                        {% else %}
+                                        <a href="{% url 'posts:createprofilebeforeview'%}">{{ comments.author }}</a>
+                                        {% endif %}
                                         {% else %}
                                         <p>{{ comments.author }}</p>
                                         {% endif %}
