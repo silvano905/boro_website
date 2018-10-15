@@ -163,3 +163,7 @@ def post_list_search(request):
         "post_list": queryset
     }
     return render(request, 'posts/post_list.html', context)
+
+
+class CreateProfileBeforeSearch(TemplateView):
+    template_name = 'posts/create_a_profile.html'

@@ -16,6 +16,7 @@ urlpatterns = [
 
     url(r'^post/(?P<pk>\d+)$', views.post_details, name='post_detail'),
     url(r'^like/$', views.like_post, name='like_post'),
+    url(r'^warning', views.CreateProfileBeforeSearch.as_view(), name='createprofilebeforeview'),
 
     url(r'^postsapi/$', views.PostListSeri.as_view()),
     url(r'^postsapi/create/$', views.PostCreateAPIView.as_view()),

@@ -60,7 +60,7 @@ class UserUpdateAPI(RetrieveUpdateAPIView, LoginRequiredMixin):
 # ------------------------------------Views------------------------------------------------------
 
 
-class index_home(LoginRequiredMixin, ListView):
+class IndexHome(LoginRequiredMixin, ListView):
     login_url = '/login/'
     template_name = 'main.html'
 
@@ -187,6 +187,7 @@ def edit_profile(request):
     else:
         form1 = UserFormCreationFormUpdate(instance=request.user)
         form2 = UserFormProfileUpdate(instance=request.user.profiles)
+
 
     return render(request, 'accounts/createprofile.html', {'form': form1, 'formm': form2, 'image': image})
 

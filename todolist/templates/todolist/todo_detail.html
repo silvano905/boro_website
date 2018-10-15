@@ -41,7 +41,12 @@
             <div class="card" style="width: 25rem;">
                 <div class="card-body">
                     {% if request.user != suggestions.author%}
+                        {% if request.user.profiles %}
                     <p class="card-text"><a href="{% url 'accounts:detail' pk=suggestions.author.profiles.pk %}">{{ suggestions.author }}</a></p>
+                        {% else %}
+                            <p class="card-text"><a href="{% url 'posts:createprofilebeforeview' %}">{{ suggestions.author }}</a></p>
+                        {% endif %}
+
                         {% else %}
                         <p>{{ suggestions.author }}</p>
                         {% endif %}
