@@ -6,7 +6,6 @@ from django.http import Http404
 from django.contrib import messages
 from comments.models import Suggestion
 from .models import Todo
-User = get_user_model()
 from posts.models import MakePost
 from .forms import TodoForm, TestingForm
 from django.db.models import Q
@@ -14,6 +13,7 @@ from django.core.paginator import Paginator
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from itertools import chain
+User = get_user_model()
 
 
 @login_required
