@@ -22,13 +22,13 @@
 <div class="container">
     <div class="jumbotron">
 
-<div class="text-center"><h2>WHAT DO YOU WANT TO ADD TO YOUR META LIST?</h2></div>
+<div class="text-center"><h2>Qué quieres agregar a tus metas?</h2></div>
 <br>
 
         <form action="{% url 'todolist:add' %}" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             <div class="form-group">
-                <label for="{{ form.title.id_for_label }}">Title: {{ form.title }}</label>
+                <label for="{{ form.title.id_for_label }}">Titulo: {{ form.title }}</label>
                 <label for="{{ form.todo_pic.id_for_label }}"><input onchange="PreviewImage();" type="file" id="files" value="{{ form.todo_pic }}"></label>
                 <img id="image" style="width: 170px; height: 200px; object-fit: cover" />
             </div>
@@ -36,15 +36,15 @@
 
             <p>{{ form.info }}</p>
 
-            <button type="submit" class="btn btn-dark">ADD</button>
+            <button type="submit" class="btn btn-dark">AGREGAR</button>
         </form>
 
         <br>
         <br>
 
 <div class="d-flex justify-content-center">
-        <a href="{% url 'todolist:deletecomplete' %}"><button type="button" class="btn btn-dark"> DELETE COMPLETED</button></a>
-        <a href="{% url 'todolist:deleteall' %}"><button type="button" class="btn btn-danger">DELETE ALL</button></a>
+        <a href="{% url 'todolist:deletecomplete' %}"><button type="button" class="btn btn-dark"> BORRAR COMPLETADAS</button></a>
+        <a href="{% url 'todolist:deleteall' %}"><button type="button" class="btn btn-danger">BORRAR TODAS</button></a>
 </div>
         <br>
         <br>
@@ -59,14 +59,14 @@
 
                 <div class="card-body">
                     <p class="card-text"><a href="{% url 'todo:single' username=todo.user.username pk=todo.pk %}">{{ todo.meta_title_summary }}</a></p>
-                    <button type="button" class="btn btn-success btn-lg btn-block">Completed</button>
-                    <p class="card-link"></p><a href="{% url 'todo:remove_todo_individual' pk=todo.pk%}" class="btn btn-outline-danger">delete</a>
+                    <button type="button" class="btn btn-success btn-lg btn-block">Completada</button>
+                    <p class="card-link"></p><a href="{% url 'todo:remove_todo_individual' pk=todo.pk%}" class="btn btn-outline-danger">Borrar</a>
                 </div>
                 {% else %}
                 <div class="card-body">
                     <p class="card-text"><a href="{% url 'todo:single' username=todo.user.username pk=todo.pk %}">{{ todo.meta_title_summary }}</a></p>
-                    <p class="card-text"><a href="{% url 'todolist:complete' todo.pk %}" class="btn btn-outline-primary">Complete</a></p>
-                    <p class="card-text"><a href="{% url 'todo:remove_todo_individual' pk=todo.pk %}" class="btn btn-outline-danger">delete</a></p>
+                    <p class="card-text"><a href="{% url 'todolist:complete' todo.pk %}" class="btn btn-outline-primary">Completar</a></p>
+                    <p class="card-text"><a href="{% url 'todo:remove_todo_individual' pk=todo.pk %}" class="btn btn-outline-danger">Borrar</a></p>
                 </div>
                             {% endif %}
             </div>

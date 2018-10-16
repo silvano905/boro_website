@@ -25,7 +25,7 @@ def add_comment_to_post(request, pk):
             comment.save()
 
             notify.send(sender=request.user, actor=request.user, recipient=post.author,
-                        verb="added a comment to your post: ' {} ' ".format(post.title), nf_type='followed_by_one_user')
+                        verb="agrego un comentario a: ' {} ' ".format(post.title), nf_type='followed_by_one_user')
 
             return redirect('posts:post_detail', pk=post.pk)
     else:
@@ -46,7 +46,7 @@ def add_suggestion_to_todo(request, pk):
             suggestion.save()
 
             notify.send(sender=request.user, actor=request.user, recipient=todo.user,
-                        verb="added a suggestion to your wish: ' {} ' ".format(todo.title), nf_type='followed_by_one_user')
+                        verb="agrego una sugerencia a tu meta: ' {} ' ".format(todo.title), nf_type='followed_by_one_user')
 
             return redirect('todo:single', username=todo.user.username, pk=todo.pk)
     else:

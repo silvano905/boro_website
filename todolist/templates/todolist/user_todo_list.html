@@ -24,23 +24,35 @@
                         <img class="card-img-top silvano" src="{{ todo.todo_pic.url }}" alt="Card image cap">
                     <div class="card-body">
                         <p class="text-center"><a href="{% url 'todo:single' username=todo.user.username pk=todo.id %}" style="color: #1A01CC">{{ todo.title }}</a></p>
-                        <p class="card-text" style="color: #2C2C2C">Completed: {{ todo.complete }}</p>
+
+                        {% if todo.complete %}
+                            <p class="card-text" style="color: #2C2C2C">Completado: SI</p>
+                        {% else %}
+                             <p class="card-text" style="color: #2C2C2C">Completado: NO</p>
+                        {% endif %}
+
                         <p class="card-title" style="color: #2C2C2C">@{{ todo.user.username }}</p>
-                        <p class="card-text" style="color: #2C2C2C">Published on: {{todo.created_date|date:"D M Y"}}</p>
+                        <p class="card-text" style="color: #2C2C2C">Publicado en: {{todo.created_date|date:"d /m/ Y"}}</p>
                     </div>
                     <div class="card-footer text-muted">
-                        <p style="color: #2C2C2C">{{ todo.suggestions.count }} suggestion{{ todo.suggestions.count|pluralize }}</p>
+                        <p style="color: #2C2C2C">{{ todo.suggestions.count }} sugerencia{{ todo.suggestions.count|pluralize }}</p>
                     </div>
                     {% else %}
                         <div class="card-body">
                             <p class="text-center"><a href="{% url 'todo:single' username=todo.user.username pk=todo.id %}" style="color: #1A01CC">{{ todo.title }}</a></p>
                             <p class="card-text" style="color: #2C2C2C">{{ todo.meta_info_summary }}</p>
-                            <p class="card-text" style="color: #2C2C2C">Completed: {{ todo.complete }}</p>
+
+                            {% if todo.complete %}
+                                <p class="card-text" style="color: #2C2C2C">Completado: SI</p>
+                            {% else %}
+                                <p class="card-text" style="color: #2C2C2C">Completado: NO</p>
+                            {% endif %}
+
                             <p class="card-title" style="color: #2C2C2C">@{{ todo.user.username }}</p>
-                            <p class="card-text" style="color: #2C2C2C">Published on: {{todo.created_date|date:"D M Y"}}</p>
+                            <p class="card-text" style="color: #2C2C2C">Publicado en: {{todo.created_date|date:"d /m/ Y"}}</p>
                         </div>
                         <div class="card-footer text-muted">
-                            <p style="color: #2C2C2C">{{ todo.suggestions.count }} suggestion{{ todo.suggestions.count|pluralize }}</p>
+                            <p style="color: #2C2C2C">{{ todo.suggestions.count }} sugerencia{{ todo.suggestions.count|pluralize }}</p>
                         </div>
                     {% endif %}
                 </div>

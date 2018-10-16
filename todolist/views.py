@@ -7,7 +7,7 @@ from django.contrib import messages
 from comments.models import Suggestion
 from .models import Todo
 from posts.models import MakePost
-from .forms import TodoForm, TestingForm
+from .forms import TodoForm
 from django.db.models import Q
 from django.core.paginator import Paginator
 from django.contrib.auth.decorators import login_required
@@ -30,7 +30,7 @@ def addTodo(request):
             user_todo_list.user = request.user
             if_obj_exists = Todo.objects.filter(title=get_title, user__exact=request.user).exists()
             if if_obj_exists:
-                messages.warning(request, 'Warning already in your list!')
+                messages.warning(request, 'Advertencai! Ya esta en tu lista')
                 form = TodoForm()  # to clear form input
                 return render(request, 'todolist/index.html', context={'form': form, 'todo_list': todo_list})
             else:

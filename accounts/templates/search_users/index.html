@@ -8,7 +8,7 @@
         <div class="container">
             <div class="jumbotron">
                 <div align="center">
-                    <p><strong>{{ object_list.count }} User{{ object_list.count|pluralize }} found</strong></p>
+                    <p><strong>{{ object_list.count }} Usuario{{ object_list.count|pluralize }} econtrado</strong></p>
                     {% for user in object_list %}
                         {% if user.profile_pic %}
                             <div class="card" style="width: 10rem; height: 16rem">
@@ -29,7 +29,7 @@
    <div class="container">
        <div class="jumbotron">
            <div align="center">
-               <p>No Results</p>
+               <p>No Resultados</p>
            </div>
        </div>
    </div>
@@ -40,7 +40,7 @@
     <div class="container">
         <div class="jumbotron">
             <div align="center">
-                <p>You need to create a profile to search users</p>
+                <p>Necesitas crear un perfil antes de buscar usuarios</p>
             </div>
         </div>
     </div>

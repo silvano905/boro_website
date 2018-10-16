@@ -106,7 +106,7 @@ def like_post(request):
         is_liked = False
 
     else:
-        notify.send(sender=request.user, actor=request.user, recipient=post.author, verb="liked your post: ' {a} '. ".format(a=post.title),
+        notify.send(sender=request.user, actor=request.user, recipient=post.author, verb="le gusta tu post: ' {a} '. ".format(a=post.title),
                     nf_type='followed_by_one_user')
 
         LikeUserList.objects.create(user=request.user, post=post)

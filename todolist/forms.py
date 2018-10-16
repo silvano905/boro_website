@@ -2,6 +2,7 @@ from django import forms
 from .models import Todo
 from django.forms import Textarea, TextInput, ImageField
 
+
 class TodoForm(forms.ModelForm):
     class Meta:
         model = Todo
@@ -12,6 +13,3 @@ class TodoForm(forms.ModelForm):
             'title': TextInput(attrs={'size': '48'})
         }
 
-
-class TestingForm(forms.Form):
-    image = forms.ImageField()

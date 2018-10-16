@@ -23,11 +23,9 @@ def add_member_to_message_group(request, pk):
             user_message_group.user = member.user
             if_obj_exists = GroupMessage.objects.filter(member=member, user__exact=request.user).exists()
             if if_obj_exists:
-                messages.warning(request, '{} is already in your messages list!'.format(member))
                 return redirect('accounts:detail', pk=pk)
 
             else:
-                messages.success(request, '{} was added to your messages list!'.format(member))
                 user_message_group.save()
                 return redirect('accounts:detail', pk=pk)
 

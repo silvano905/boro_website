@@ -23,15 +23,15 @@ def add_friend_to_list(request, pk):
             user_friend_list.user = request.user
             if_obj_exists = Friend.objects.filter(friend=friend, user__exact=request.user).exists()
             if if_obj_exists:
-                messages.warning(request, '{} is already in your friends list!'.format(friend))
+                messages.warning(request, '{} ya esta en tu lista de amigos!'.format(friend))
                 return redirect('accounts:detail', pk=pk)
 
             else:
 
-                notify.send(sender=request.user, actor=request.user, recipient=friend.user, verb='added you to his friends list',
+                notify.send(sender=request.user, actor=request.user, recipient=friend.user, verb='te agrego a la lista de amigos',
                             nf_type='followed_by_one_user')
 
-                messages.success(request, '{} was added to your friends list!'.format(friend))
+                messages.success(request, '{} fue agregado a tus amigos!'.format(friend))
                 user_friend_list.save()
                 return redirect('accounts:detail', pk=pk)
 

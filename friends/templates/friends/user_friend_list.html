@@ -5,7 +5,7 @@
 
 <div class="d-flex justify-content-center">
 
-    <h2>Friends list</h2>
+    <h2>Amigos</h2>
 </div>
     <br>
 
@@ -23,12 +23,12 @@
                 <div class="card-text">
 
                             <div class="btn-group" role="group" aria-label="Basic example">
-        <a href="{% url 'message:add_message' pk=friends.friend.id %}" class="btn btn-outline-primary">Message</a>
-        <a href="{% url 'accounts:detail_messages' pk=friends.friend.id %}" class="btn btn-outline-warning">View Messages</a>
+        <a href="{% url 'message:add_message' pk=friends.friend.id %}" class="btn btn-outline-primary">Enviar Mensaje</a>
+        <a href="{% url 'accounts:detail_messages' pk=friends.friend.id %}" class="btn btn-outline-warning">Ver Mensajes</a>
         </div>
                 </div>
                            <br>
-     <p class="card-text"><a href="{% url 'friends:friend_remove' pk=friends.friend.id %}" class="btn btn-outline-danger">Remove</a></p>
+     <p class="card-text"><a href="{% url 'friends:friend_remove' pk=friends.friend.id %}" class="btn btn-outline-danger">Remover</a></p>
 
 
             </div>

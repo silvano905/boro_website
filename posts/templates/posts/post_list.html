@@ -12,7 +12,7 @@
         {% csrf_token %}
         <div class="input-group input-group-lg">
         <div class="input-group-prepend">
-            <span class="input-group-text" id="inputGroup-sizing-lg">Search Posts</span>
+            <span class="input-group-text" id="inputGroup-sizing-lg">Buscar Posts</span>
         </div>
         <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" name="q">
         <button type="submit" class="btn btn-dark">GO</button>
@@ -38,7 +38,7 @@
                         </div>
                         <div class="card-footer text-muted">
                             {{ post.likes.count }} Like{{ post.likes.count|pluralize }}
-                            {{ post.comments.count }} comment{{ post.comments.count|pluralize }}
+                            {{ post.comments.count }} comentario{{ post.comments.count|pluralize }}
                         </div>
                     {% else %}
                         <div class="card-body">
@@ -48,7 +48,7 @@
                         </div>
                         <div class="card-footer text-muted">
                             {{ post.likes.count }} Like{{ post.likes.count|pluralize }}
-                            {{ post.comments.count }} comment{{ post.comments.count|pluralize }}
+                            {{ post.comments.count }} comentario{{ post.comments.count|pluralize }}
                         </div>
                     {% endif %}
                 </div>

@@ -11,14 +11,14 @@
             <br>
             <br>
             <p>username: {{ user_list.user.username }}</p>
-            <p>description: {{ user_list.description }}</p>
-            <p>gender: {{ user_list.gender }}</p>
+            <p>descripcion: {{ user_list.description }}</p>
+            <p>genero: {{ user_list.gender }}</p>
             <form method="POST" action="{% url 'accounts:block_user' %}">
                 {% csrf_token %}
                     {% if is_blocked %}
-                        <button type="submit" class="btn btn-light" name="post_id" value="{{ user_list.pk }}">Unblock</button>
+                        <button type="submit" class="btn btn-light" name="post_id" value="{{ user_list.pk }}">Desbloquear</button>
                     {% else %}
-                        <button type="submit" class="btn btn-outline-danger" name="post_id" value="{{ user_list.pk }}">Block</button>
+                        <button type="submit" class="btn btn-outline-danger" name="post_id" value="{{ user_list.pk }}">Bloquear</button>
                     {% endif %}
             </form>
             <br>
@@ -59,14 +59,14 @@
     {% if both_lists %}
 
     <div class="d-flex justify-content-center">
-    <a href="{% url 'message:add_message' pk=user_list.pk %}" class="btn btn-primary">Respond</a>
+    <a href="{% url 'message:add_message' pk=user_list.pk %}" class="btn btn-primary">Responders</a>
     </div>
 
     {% else %}
         <div class="container">
             <div class="jumbotron">
                 <div align="center">
-                     <p><strong>No Messages</strong></p>
+                     <p><strong>No Mensajes</strong></p>
                 </div>
             </div>
         </div>
@@ -75,7 +75,7 @@
 {% else %}
     <div class="container">
         <div class="jumbotron">
-            <div align="center"><p>Either you blocked {{ user_list.user }} or {{ user_list.user }} blocked you </p></div>
+            <div align="center"><p>Bloqueado</p></div>
         </div>
     </div>
 

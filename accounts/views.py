@@ -188,7 +188,6 @@ def edit_profile(request):
         form1 = UserFormCreationFormUpdate(instance=request.user)
         form2 = UserFormProfileUpdate(instance=request.user.profiles)
 
-
     return render(request, 'accounts/createprofile.html', {'form': form1, 'formm': form2, 'image': image})
 
 
@@ -205,7 +204,7 @@ def delete_profile(request):
     user = request.user
     user.is_active = False
     user.save()
-    messages.success(request, 'Profile successfully disabled.')
+    messages.success(request, 'Perfil fue desactivado.')
     return redirect('home')
 
 

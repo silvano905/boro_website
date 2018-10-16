@@ -6,6 +6,7 @@
 
 
         <div class="col">
+        <p>Metas</p>
             <div class="row">
         {% for todo in meta_list %}
             <div class="col-md-6">
@@ -18,21 +19,32 @@
 
                 <div class="card-body">
                     <p class="text-center"><a href="{% url 'todo:single' username=todo.user.username pk=todo.id %}" style="color: darkblue">{{ todo.title }}</a></p>
-                    <p class="card-text" style="color: #080808">Completed: {{ todo.complete }}</p>
+                    {% if todo.complete %}
+                        <p class="card-text" style="color: #080808">Completado: SI</p>
+                    {% else %}
+                        <p class="card-text" style="color: #080808">Completado: NO</p>
+                    {% endif %}
+
                     <p class="card-title"><a href="{% url 'todo:for_user' username=todo.user.username %}" style="color: darkblue">@{{ todo.user.username }}</a></p>
                 </div>
                 <div class="card-footer text-muted">
-                    <p style="color: #2C2C2C">{{ todo.suggestions.count }} suggestion{{ todo.suggestions.count|pluralize }}</p>
+                    <p style="color: #2C2C2C">{{ todo.suggestions.count }} sugerencia{{ todo.suggestions.count|pluralize }}</p>
                 </div>
             {% else %}
                 <div class="card-body">
                     <p class="text-center"><a href="{% url 'todo:single' username=todo.user.username pk=todo.id %}" style="color: darkblue">{{ todo.title }}</a></p>
                     <p class="card-text" style="color: #080808">{{ todo.meta_info_summary }}</p>
-                    <p class="card-text" style="color: #080808">Completed: {{ todo.complete }}</p>
+
+                    {% if todo.complete %}
+                        <p class="card-text" style="color: #080808">Completado: SI</p>
+                    {% else %}
+                        <p class="card-text" style="color: #080808">Completado: NO</p>
+                    {% endif %}
+
                     <p class="card-title"><a href="{% url 'todo:for_user' username=todo.user.username %}" style="color: darkblue">@{{ todo.user.username }}</a></p>
                 </div>
                 <div class="card-footer text-muted">
-                    <p style="color: #2C2C2C">{{ todo.suggestions.count }} suggestion{{ todo.suggestions.count|pluralize }}</p>
+                    <p style="color: #2C2C2C">{{ todo.suggestions.count }} sugerencia{{ todo.suggestions.count|pluralize }}</p>
                 </div>
             {% endif %}
         </div>
@@ -52,6 +64,7 @@
 
 
         <div class="col">
+        <p>Posts</p>
             <div class="row">
         {% for post in post_list %}
             <div class="col-md-6">
@@ -66,7 +79,7 @@
                         </div>
                         <div class="card-footer text-muted">
                             {{ post.likes.count }} Like{{ post.likes.count|pluralize }}
-                            {{ post.comments.count }} comment{{ post.comments.count|pluralize }}
+                            {{ post.comments.count }} comentario{{ post.comments.count|pluralize }}
                         </div>
                     {% else %}
                         <div class="card-body">
@@ -76,7 +89,7 @@
                         </div>
                         <div class="card-footer text-muted">
                             {{ post.likes.count }} Like{{ post.likes.count|pluralize }}
-                            {{ post.comments.count }} comment{{ post.comments.count|pluralize }}
+                            {{ post.comments.count }} comentario{{ post.comments.count|pluralize }}
                         </div>
                     {% endif %}
                 </div>

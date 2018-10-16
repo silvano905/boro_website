@@ -27,18 +27,18 @@
                     <a class="nav-link" href="{% url 'todo:todo_list'%}">Metas</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'posts:create_post' %}" >Create post</a>
+                    <a class="nav-link" href="{% url 'posts:create_post' %}" >Crear Post</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'todo:add'%}">Add Meta</a>
+                    <a class="nav-link" href="{% url 'todo:add'%}">Agregar Meta</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     {{ request.user.first_name }}
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{% url 'posts:for_user' username=request.user %}">My Posts</a>
-                        <a class="dropdown-item" href="{% url 'todo:for_user' username=request.user %}">My Metas</a>
+                        <a class="dropdown-item" href="{% url 'posts:for_user' username=request.user %}">Mis Posts</a>
+                        <a class="dropdown-item" href="{% url 'todo:for_user' username=request.user %}">Mis Metas</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -46,46 +46,46 @@
                       Social
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{% url 'friends:my_list_friend' username=request.user %}">Friends</a>
-                        <a class="dropdown-item" href="{% url 'group_message:my_message_members' username=request.user %}">Messages</a>
+                        <a class="dropdown-item" href="{% url 'friends:my_list_friend' username=request.user %}">Amigos</a>
+                        <a class="dropdown-item" href="{% url 'group_message:my_message_members' username=request.user %}">Mensajes</a>
                     </div>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'noti:all' %}">Notifications<span style="color: #3875d7"> {{ notifications_list.count }}</span></a>
+                    <a class="nav-link" href="{% url 'noti:all' %}">Notificaciones<span style="color: #3875d7"> {{ notifications_list.count }}</span></a>
                 </li>
 
 
             {% if user.profiles %}
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Profile
+                        Perfil
                     </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="{% url 'accounts:viewprofile' %}">View Profile</a>
-                    <a class="dropdown-item" href="{% url 'accounts:profile' %}">Edit Profile</a>
-                    <a class="dropdown-item" href="{% url 'accounts:confirm-deactivate' %}">Deactivate</a>
+                    <a class="dropdown-item" href="{% url 'accounts:viewprofile' %}">Ver Perfil</a>
+                    <a class="dropdown-item" href="{% url 'accounts:profile' %}">Editar Perfil</a>
+                    <a class="dropdown-item" href="{% url 'accounts:confirm-deactivate' %}">Desactivar</a>
                 </div>
                 </li>
             {% else %}
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'accounts:createprofile' %}">Create profile</a>
+                    <a class="nav-link" href="{% url 'accounts:createprofile' %}">Crear perfil</a>
                 </li>
             {% endif %}
             </ul>
-                    <a class="nav-link" href="{% url 'logout' %}" >Logout</a>
+                    <a class="nav-link" href="{% url 'logout' %}" >Cerrar Sesión</a>
 
             {% block serach_block %}
                 <form method="GET" action="{% url 'accounts:list'%}" class="form-inline">
                     {% csrf_token %}
-                    <input class="form-control mr-sm-2" type="text" placeholder="Search Users" aria-label="Search" name="q">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    <input class="form-control mr-sm-2" type="text" placeholder="Buscar usuarios" aria-label="Search" name="q">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
                  </form>
             {% endblock %}
         </div>
     {% else %}
-            <a class="nav-link" href="{% url 'login' %}">Login</a>
-            <a class="nav-link" href="{% url 'accounts:registration' %}">Register</a>
+            <a class="nav-link" href="{% url 'login' %}">Iniciar Sesión</a>
+            <a class="nav-link" href="{% url 'accounts:registration' %}">Registrarse</a>
     {% endif %}
 
 

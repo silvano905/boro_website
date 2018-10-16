@@ -14,16 +14,21 @@
         <div class="card-body">
             <p class="text-center">{{ todo.title }}</p>
             <p class="card-text">{{ todo.info }}</p>
-            <p class="card-text">Completed: {{ todo.complete }}</p>
+            {% if todo.complete %}
+                <p class="card-text">Completado: SI</p>
+            {% else %}
+                <p class="card-text">Completado: NO</p>
+            {% endif %}
+
             <p class="card-title"><a href="{% url 'todo:for_user' username=todo.user.username %}" style="color: #1A01CC">@{{ todo.user.username }}</a></p>
-            <p class="card-text">Published on: {{todo.created_date|date:"D M Y"}}</p>
-            <p class="card-text"><a href="{% url 'comments:add_suggestion_to_todo' pk=todo.pk %}" class="btn btn-light">Add Suggestion</a></p>
+            <p class="card-text">Publicado en: {{todo.created_date|date:"d /m/ Y"}}</p>
+            <p class="card-text"><a href="{% url 'comments:add_suggestion_to_todo' pk=todo.pk %}" class="btn btn-light">Agregar Sugerencia</a></p>
             {% if user.is_authenticated and todo.user == request.user%}
-        <a href="{% url 'todo:remove_todo_individual' pk=todo.pk %}" class="btn btn-danger">Remove</a>
+        <a href="{% url 'todo:remove_todo_individual' pk=todo.pk %}" class="btn btn-danger">Remover</a>
     {% endif %}
         </div>
         <div class="card-footer text-muted">
-            {{ todo.suggestions.count }} suggestion{{ todo.suggestions.count|pluralize }}
+            {{ todo.suggestions.count }} sugerencia{{ todo.suggestions.count|pluralize }}
         </div>
     </div>
 
@@ -50,9 +55,9 @@
                         {% else %}
                         <p>{{ suggestions.author }}</p>
                         {% endif %}
-                    <p class="card-text">Text: {{ suggestions.text }}</p>
+                    <p class="card-text">Texto: {{ suggestions.text }}</p>
                 </div>
-                <div class="card-footer text-muted"><p>Date: {{ suggestions.created_date }}</p>
+                <div class="card-footer text-muted"><p>Fecha: {{ suggestions.created_date|date:"d /m/ Y" }}</p>
                 </div>
             </div>
 
