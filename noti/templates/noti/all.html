@@ -13,7 +13,8 @@
 
           {% for notification in notifications %}
 
-        <p><a href="{% url 'noti:delete' pk=notification.id%}" class="btn btn-outline-danger">X</a>   {{ notification }}</p>
+        <p><a href="{% url 'noti:delete' pk=notification.id%}" class="btn btn-outline-danger">X</a>   {{ notification }}
+        </p>
 
 
           {% endfor %}

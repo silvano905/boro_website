@@ -18,7 +18,7 @@ def make_a_message(request, pk):
         form3 = MakeMessageGroupForm(request.POST)
 
         if form.is_valid() and form2.is_valid() and form3.is_valid():
-            notify.send(sender=request.user, actor=request.user, recipient=recipient.user, verb='nuevo mensaje', nf_type='followed_by_one_user')
+            notify.send(sender=request.user, actor=request.user, recipient=recipient.user, verb='te envió un mensaje', nf_type='message')
 
             my_message = form.save(commit=False)
             my_message.recipient = recipient
