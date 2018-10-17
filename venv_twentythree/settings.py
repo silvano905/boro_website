@@ -147,8 +147,20 @@ LOGIN_REDIRECT_URL = '/'
 
 DJANGO_NOTIFICATIONS_CONFIG = { 'SOFT_DELETE': True}
 
-EMAIL_USE_TLS = True
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'djangotestpycharm@gmail.com'
-EMAIL_HOST_PASSWORD = os.environ.get('GMAIL_PASSWORD')
+SEND_GRID_API_KEY = os.environ.get('SENDGRID_API_KEY')
+EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_HOST_USER = 'silvano905'
+EMAIL_HOST_PASSWORD = os.environ.get('SENDGRID_PASSWORD')
 EMAIL_POST = 587
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'from BORO'
+
+
+
+
+# EMAIL_USE_TLS = True
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_HOST_USER = 'djangotestpycharm@gmail.com'
+# EMAIL_HOST_PASSWORD = os.environ.get('GMAIL_PASSWORD')
+# EMAIL_POST = 587
+
