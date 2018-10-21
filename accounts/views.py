@@ -20,8 +20,12 @@ from rest_framework.filters import SearchFilter
 from .pagination import PostLimitOffsetPagination
 from itertools import chain
 from notify.models import Notification
-
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
+from django.conf import settings
 from operator import attrgetter
+
+
 # class UsersListAPI(ListAPIView):
 #     queryset = Profile.objects.all()
 #     serializer_class = UsersListSerializer
@@ -108,8 +112,14 @@ def create_user_form(request):
         form = UserFormRegistration(request.POST)
 
         if form.is_valid():
+            form.save(commit=False)
+            email_user = form.cleaned_data['email']
             form.save(commit=True)
-            return render(request, 'main.html')
+
+            msg_html = render_to_string('registration/welcome.html')
+            send_mail('SILBERE', 'Bienvenido!', settings.EMAIL_HOST_USER, [email_user], html_message=msg_html,
+                      fail_silently=False)
+            return redirect('login')
         else:
             form = UserFormRegistration()
 
