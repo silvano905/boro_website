@@ -28,7 +28,7 @@ SECRET_KEY = os.environ.get('MY_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['silvanobere.pythonanywhere.com','www.silbere.com',]
 
 
 # Application definition
