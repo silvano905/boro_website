@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.shortcuts import render, get_object_or_404, HttpResponseRedirect, redirect
-from django.views.generic import TemplateView, DeleteView, DetailView, CreateView, UpdateView, ListView
+from django.views.generic import TemplateView, DeleteView, UpdateView, ListView
 from django.db.models import Q
 from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
