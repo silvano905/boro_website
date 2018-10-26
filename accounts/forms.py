@@ -15,6 +15,12 @@ class UserFormProfile(forms.ModelForm):
         model = Profile
         fields = ('gender', 'description', 'profile_pic')
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['gender'].label = 'Género (mujer/hombre)'
+        self.fields['description'].label = "Descripción"
+        self.fields['profile_pic'].label = "Foto de perfil"
+
 
 # -------------------------to update---------------------------------------
 
