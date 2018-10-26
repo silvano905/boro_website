@@ -7,7 +7,7 @@ from django.urls import reverse
 class Todo(models.Model):
     user = models.ForeignKey(User, related_name='wishes', on_delete=models.CASCADE)
     title = models.CharField(max_length=55)
-    info = models.TextField(max_length=3000)
+    info = models.TextField(max_length=3000, blank=True)
     todo_pic = models.ImageField(upload_to='media', blank=True)
     complete = models.BooleanField(default=False)
     created_date = models.DateTimeField(default=timezone.now)

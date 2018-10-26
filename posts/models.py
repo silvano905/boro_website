@@ -8,7 +8,7 @@ class MakePost(models.Model):
     author = models.ForeignKey(User, related_name='posts', on_delete=models.CASCADE)
     title = models.CharField(max_length=63)
     post_pic = models.ImageField(upload_to='media', blank=True)
-    info = models.TextField(max_length=3000)
+    info = models.TextField(max_length=3000, blank=True)
     likes = models.ManyToManyField('auth.User', related_name='likes', blank=True, through='LikeUserList')
     created_date = models.DateTimeField(default=timezone.now)
 
