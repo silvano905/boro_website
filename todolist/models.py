@@ -25,7 +25,7 @@ class Todo(models.Model):
     def meta_title_summary(self):
         len_title = len(self.title)
         if len_title >= 40:
-            return self.title[:40]+'.....'
+            return self.title[:30]+'.....'
         else:
             return self.title
 
